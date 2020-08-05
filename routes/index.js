@@ -7,6 +7,8 @@ const url=process.env.DB;
 const bodyparser=require('body-parser');
 const app= express();
 app.use(bodyparser.json());
+const cors=require("cors");
+app.use(cors());
 
 
 /* GET home page. */
