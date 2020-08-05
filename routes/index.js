@@ -10,6 +10,23 @@ app.use(bodyparser.json());
 
 
 /* GET home page. */
+//list todo
+router.get('/list',async(req, res)=> {
+  //res.render('index', { title: 'Express' });
+  try{
+  console.log(url);
+  let client=await mongodb.connect(url);
+  let db=client.db('test');
+  let data=await db.collection('items').find().toArray();
+  await client.close();
+  res.json({
+    data:data,
+  })
+  }catch(err){
+  console.log(err);
+  }
+  
+});
 //add todo
 router.get('/',async function(req, res, next) {
   //res.render('index', { title: 'Express' });
