@@ -8,9 +8,9 @@ const bodyparser=require('body-parser');
 const app= express();
 app.use(bodyparser.json());
 const cors=require("cors");
-app.use(cors({origin: 'http://localhost:3000'}));
+router.use(cors({origin: "*"}));
 // Add headers
-app.use(function (req, res, next) {
+router.use(function (req, res, next) {
 
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
