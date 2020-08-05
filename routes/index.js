@@ -8,7 +8,7 @@ const bodyparser=require('body-parser');
 const app= express();
 app.use(bodyparser.json());
 const cors=require("cors");
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000'}));
 // Add headers
 app.use(function (req, res, next) {
 
