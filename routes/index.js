@@ -48,7 +48,7 @@ router.get('/list',async(req, res)=> {
   
 });
 //add todo
-router.get('/',async function(req, res, next) {
+router.post('/',async function(req, res, next) {
   //res.render('index', { title: 'Express' });
   try{
   console.log(url);
