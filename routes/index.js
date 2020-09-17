@@ -83,5 +83,24 @@ router.delete('/:id',async function(req, res) {
   
 });
 
+//ContactDetails in portfolio
+//add todo
+router.post('/contact',async function(req, res, next) {
+  //res.render('index', { title: 'Express' });
+  try{
+  console.log(url);
+  let client=await mongodb.connect(url);
+  let db=client.db('test');
+  let data=await db.collection('contactdetails').insertOne(req.body);
+  await client.close();
+  res.json({
+    message:"success"
+  })
+  }catch(err){
+  console.log(err);
+  }
+  
+});
+
 
 module.exports = router;
